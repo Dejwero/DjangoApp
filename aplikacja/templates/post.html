@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+        <p>{{image.profile}}</p>
+        <p>{{image.description}}</p>
+        <h2>Komentarze</h2>
+        {% if not image.comments.all %}
+                <p>Jeszcze nie ma komentarzy...</p>
+                <a href="#">Dodaj komentarz</a>
+        {% else %}
+                <a href="#">Dodaj komentarz</a>
+                {% for comment in image.comments.all %}
+                        <p>{{comment.text}}</p>
+                {% endfor %}
+        {% endif %}
+
+
+{% endblock content %}

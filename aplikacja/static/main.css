@@ -1,0 +1,17 @@
+body {
+background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #f9ffff 16.67%, #d8f0fa 33.33%, #b5def2 50%, #92cbeb 66.67%, #72bae5 83.33%, #54a9e0 100%);
+background-repeat: no-repeat;
+background-size: cover;
+font-family: 'Roboto', sans-serif;
+min-height: 100vh;
+width: 100%;
+text-align: center;
+border-style: none;
+}
+button {
+padding: 15px;
+}
+input {
+border-radius: 10px;
+padding: 5px;
+}
