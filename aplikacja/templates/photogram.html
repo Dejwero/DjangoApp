@@ -1,9 +1,13 @@
 {% extends "base-before-log.html" %}
 {% block content %}
-    <h1>Witaj na stronie PhotoGram!</h1>
-    <p>Dołącz do nas i dziel się swoimi zdjęciami ze znajomymi!</p>
-    <a href="{% url 'log-in' %}"><button>Zaloguj się</button></a>
-    <p>Nie masz konta?</p>
-    <a href="{% url 'sign-up' %}"><button>Zarejestruj się</button></a>
+    <div class="block d-inline justify-content-center align-items-center">
+        <br>
+        <br>
+        <h1 class="colour-text">Witaj na stronie PhotoGram!</h1>
+        <p class="separate">Dołącz do nas i dziel się swoimi zdjęciami ze znajomymi!</p>
+        <p><a href="{% url 'log-in' %}"><button class="btn-block btn btn-light">Zaloguj się</button></a></p>
+        <p>Nie masz konta?</p>
+        <p><a href="{% url 'sign-up' %}"><button class="btn-block btn btn-light">Zarejestruj się</button></a></p>
+    </div>
 {% endblock content %}
 
