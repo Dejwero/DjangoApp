@@ -95,3 +95,11 @@ input {
     border-radius: 10px;
     padding: 5px;
 }
+.comment {
+    background: linear-gradient(to right, #298787 0%, #653d96 100%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  text-decoration: none;
+}
