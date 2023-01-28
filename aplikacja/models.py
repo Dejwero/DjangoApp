@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime, date
 
 PROFILE_STATUS = (
     ('unfollowed', 'Unfollowed'),
@@ -24,7 +25,7 @@ class Post(models.Model):
     description = models.TextField(max_length=400)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='photo_post')
 
     def __str__(self):
