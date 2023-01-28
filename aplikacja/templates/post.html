@@ -6,12 +6,14 @@
                     <h2 class="logo-text"><a href="{% url 'profile' %}"><p>{{post.profile}}</p></a></h2>
                     <a href="{% url 'post-photogram' post.pk %}">
                         <img src="{{post.picture}}">
+                        <img src="{{post.picture.url}}">
                     </a>
                     <div class="description">
                         <p class="">{{post.description}}</p>
                     </div>
                         <h2 class="colour-text">Komentarze</h2>
                         {% if not image.comments.all %}
+                        {% if not post.comments.all %}
                                 <p>Jeszcze nie ma komentarzy...</p>
                                 <a href="#">Dodaj komentarz</a>
                         {% else %}
@@ -19,6 +21,9 @@
                                 {% for comment in image.comments.all %}
                                 <div class="comment">
                                       <p>{{comment.text}}</p>
+                                {% for comment in post.comments.all %}
+                                <div class="comment">
+                                      <p class="text-white">{{comment.text}}</p>
                                 </div>
                                 {% endfor %}
                         {% endif %}
