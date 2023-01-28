@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
-    {% for post in object_list %}
-        <a href="{% url 'profile' %}"><p>{{post.profile}}</p></a>
-        <a href="{% url 'post-photogram' post.pk %}"><p>{{post.description}}</p></a>
-    {% endfor %}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+            {% for post in object_list %}
+                <div class="post flex-column d-flex justify-content-center">
+                    <h2 class="logo-text"><a href="{% url 'profile' %}"><p>{{post.profile}}</p></a></h2>
+                    <a href="{% url 'post-photogram' post.pk %}"><div class="image"></div></a>
+                    <div class="description">
+                        <p class="">{{post.description}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
 {% endblock content %}
-</ul>

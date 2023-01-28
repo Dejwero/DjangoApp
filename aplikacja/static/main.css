@@ -1,17 +1,97 @@
 body {
-background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #f9ffff 16.67%, #d8f0fa 33.33%, #b5def2 50%, #92cbeb 66.67%, #72bae5 83.33%, #54a9e0 100%);
-background-repeat: no-repeat;
-background-size: cover;
-font-family: 'Roboto', sans-serif;
-min-height: 100vh;
-width: 100%;
-text-align: center;
-border-style: none;
+    background-image: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+/*Page before login*/
+.block {
+    background-color: rgba(0, 0, 0, 0.685);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    border-style: none;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px;
+    margin-top: 70px;
+
+}
+.block p {
+    padding: 15x;
+}
+.block a {
+    text-decoration: none;
+}
+.block .separate {
+    padding-bottom: 20px;
+}
+.logo {
+    position: absolute;
+    padding: 10px;
+    top: 20px;
+    left: 30px;
+    border-radius: 10px;
+}
+.logo-text {
+    background: linear-gradient(to right, #298787 0%, #653d96 100%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  text-decoration: none;
+}
+.colour-text {
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+}
+/*Page after login*/
+.post {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.662);
+    margin: 30px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.post h2 {
+    padding-left: 20px;
+    /* padding-top: 14px; */
+    font-size: 35px;
+}
+.post .image {
+    width: 550px;
+    height: 420px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: auto;
+}
+.post .description {
+    padding: 10px;
+    padding-left: 20px;
+    background: linear-gradient(to right, #3cb8b8 0%, #8751c9 100%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  text-decoration: none;
 }
 button {
-padding: 15px;
+    padding: 15px;
 }
 input {
-border-radius: 10px;
-padding: 5px;
+    border-radius: 10px;
+    padding: 5px;
 }
