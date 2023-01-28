@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Profile
 
-
+# kom
 def photogram(request):
     return render(request, 'photogram.html', {'title': 'Witamy!'})
 class mainpage(ListView):
