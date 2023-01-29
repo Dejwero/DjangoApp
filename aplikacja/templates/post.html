@@ -6,6 +6,7 @@
                     <h2 class="logo-text"><a href="{% url 'profile' post.profile.pk %}"><p>{{post.profile}}</p></a></h2>
                     <a href="{% url 'post-photogram' post.pk %}">
                         <img src="{{post.picture.url}}" class="image" >
+
                     </a>
                     <div class="description">
                         <p class="">{{post.description}}</p>
