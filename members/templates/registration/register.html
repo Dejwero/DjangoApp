@@ -1,0 +1,21 @@
+{% extends "base-before-log.html" %}>
+{% block content %}
+<div class="block">
+        <h1 class="colour-text">Załóż konto na PhotoGram</h1>
+<!--        <form action="" method="POST">&ndash;&gt;-->
+<!--            {% csrf_token %}-->
+<!--            <p><input type="text" name="username" placeholder="Nazwa użytkownika"></p>-->
+<!--            <p><input type="email" name="email" placeholder="E-mail"></p>-->
+<!--            <p><input type="password" name="password" placeholder="Hasło"></p>-->
+<!--            <p><input type="password" name="password2" placeholder="Powtórz hasło"></p>-->
+<!--            <p><button type="submit" class="btn btn-light btn-lg">Zarejestruj się</button></p>-->
+<!--            <p>Masz już konto? <a href="{% url 'log-in' %}">Zaloguj się</a></p>-->
+<!--        </form>-->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Register</button>
+            </form>
+    </div>
+
+{% endblock content %}\
