@@ -1,0 +1,13 @@
+{% extends "base-before-log.html" %}
+{% block content %}
+    <div class="block">
+        <h1 class="colour-text">Zaloguj się do PhotoGram</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p><input type="text" name="username" placeholder="Nazwa użytkownika"></p>
+            <p><input type="password" name="password" placeholder="Hasło"></p>
+            <p><button type="submit" class="btn btn-light btn-lg">Zaloguj się</button></p>
+            <p>Nie masz konta? <a href="{% url 'sign-up' %}">Zarejestruj się</a></p>
+        </form>
+    </div>
+{% endblock content %}
