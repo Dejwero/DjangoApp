@@ -1,40 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
+    
         <section class="d-flex">
-             <div class="image" style="max-width: 100%; max-height: 100%;"><img src="{{object.profile_picture.url}}" alt="Not found"></div>
-            <div class="tabele">
-<table>
-	<caption>Pierwsza generacja Intel Core</caption>
-	<thead>
-    <tr>
-        <th>Marka</th>
-        <th>Rdzenie</th>
-        <th>Technologia</th>
-        <th>Data wydania</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Core Solo</td>
-        <td>1</td>
-        <td>65 nm</td>
-        <td>styczeń 2006</td>
-    </tr>
-    <tr>
-        <td>Core Duo</td>
-        <td>2</td>
-        <td>65 nm</td>
-        <td>styczeń 2006</td>
-    </tr>
-    </tbody>
-</table>
-</div>
+            <div>
+                <img src="{{object.profile_picture.url}}" class="profile-avatar image" alt="Not found">
+                        <div class="tabele">
+                            <table>
+                                <caption>Pierwsza generacja Intel Core</caption>
+                                <thead>
+                                <tr>
+                                    <th>Marka</th>
+                                    <th>Rdzenie</th>
+                                    <th>Technologia</th>
+                                    <th>Data wydania</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Core Solo</td>
+                                    <td>1</td>
+                                    <td>65 nm</td>
+                                    <td>styczeń 2006</td>
+                                </tr>
+                                <tr>
+                                    <td>Core Duo</td>
+                                    <td>2</td>
+                                    <td>65 nm</td>
+                                    <td>styczeń 2006</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+            </div>
         </section>
 
 
-    </div>
+    
 
 
 {% endblock content %}
