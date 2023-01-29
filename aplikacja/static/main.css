@@ -1,5 +1,6 @@
 body {
     background-image: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
@@ -88,12 +89,22 @@ body {
   text-decoration: none;
 }
 .comment {
-    height: 50px;
-    width: 200px;
+    padding:20px;
+    width: 500px;
     padding: 10px;
     font-size: 15px;
     background-color: white;
     color: black;
+    border-radius: 20px;
+    margin: 10px;
+}
+.comment-text {
+    color: black;
+}
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 button {
     padding: 15px;
@@ -102,11 +113,36 @@ input {
     border-radius: 10px;
     padding: 5px;
 }
-.comment {
-    background: linear-gradient(to right, #298787 0%, #653d96 100%);
-    background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 40px;
-  text-decoration: none;
+
+.tabele{
+	max-width: 768px;
+	font-family: sans-serif;
+	padding:40px 20px;
+	color:#fff;
+}
+
+.tabele table{
+	width: 80%;
+	border-collapse: collapse;
+	margin: 0 auto;}
+
+.tabele caption{
+	font-size: 1.2em;
+	padding-bottom: 20px;
+}
+
+.tabele tr{
+	background: #000;
+	background: rgba(255,255,255,.3);
+	border-bottom:solid 1px #fff;
+	text-align: left;
+}
+
+.tabele tbody tr{
+	background: rgba(255,255,255,.1);
+}
+
+.tabele td{
+	padding: 8px 4px;
+	text-align: left;
 }
