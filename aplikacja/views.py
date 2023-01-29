@@ -22,6 +22,7 @@ class post(DetailView):
 class profile(DetailView):
     model = Profile
     template_name = 'profile.html'
+    pk_url_kwarg = 'pk'
     fields= '__all__'
 
 def login(request):
