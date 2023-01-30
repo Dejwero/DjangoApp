@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-        <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="post flex-column d-flex justify-content-center">
+        <div class="center">
+                <div class="post center">
                     <h2 class="logo-text"><a href="{% url 'profile' post.profile.pk %}"><p>{{post.profile}}</p></a></h2>
-                    <a href="{% url 'post-photogram' post.pk %}">
+                    <div class=" center">
+                        <a href="{% url 'post-photogram' post.pk %}">
                         <img src="{{post.picture.url}}" class="image" >
-
                     </a>
-                    <div class="description">
-                        <p class="">{{post.description}}</p>
                     </div>
+                    <div class="description">
+                        <p>{{post.date_created}}</p>
+                        <p>{{post.description}}</p>
+                    </div >
+                    <div class="center">
                         <h2 class="colour-text">Komentarze</h2>
                         {% if not post.comments.all %}
                                 <p>Jeszcze nie ma komentarzy...</p>
@@ -18,12 +21,16 @@
                         {% else %}
                                 <a href="#">Dodaj komentarz</a>
                                 {% for comment in post.comments.all %}
-                                <div class="comment">
-                                    <p class="comment-text">{{comment.author}}</p>
-                                    <p class="comment-text">{{comment.text}}</p>
+                                <div class="description d-flex">
+                                    <div><img src="{{comment.image}}" class="avatar" ></div>
+                                    <div class="px-3">
+                                        <p class="comment-text colour-text comment-author">{{comment.author}}</p>
+                                        <p class="comment-text">{{comment.text}}</p>
+                                    </div>
                                 </div>
                                 {% endfor %}
                         {% endif %}
+                    </div>
                 </div>
         </div>
 

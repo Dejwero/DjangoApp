@@ -1,40 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
-        <section class="d-flex">
-            <div>
-                <img src="{{object.profile_picture.url}}" class="profile-avatar image" alt="Not found">
-                        <div class="tabele">
-                            <table>
-                                <caption>Pierwsza generacja Intel Core</caption>
-                                <thead>
-                                <tr>
-                                    <th>Marka</th>
-                                    <th>Rdzenie</th>
-                                    <th>Technologia</th>
-                                    <th>Data wydania</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Core Solo</td>
-                                    <td>1</td>
-                                    <td>65 nm</td>
-                                    <td>styczeń 2006</td>
-                                </tr>
-                                <tr>
-                                    <td>Core Duo</td>
-                                    <td>2</td>
-                                    <td>65 nm</td>
-                                    <td>styczeń 2006</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
+    <div class="d-flex center flex-column">
+            <div class="profile-panel d-flex flex-row">
+                <div class="center">
+                    <img src="{{object.profile_picture.url}}" class="profile-avatar image" alt="Not found">
+                </div>
+                <div>
+                    <h1 class="colour-text px-3">{{profile.user_name}}</h1>
+                    <div class="line px-3"></div>
+                    <p class="colour-text px-3">Wiek</p>
+                    <p class="colour-text px-3">{{profile.age}}</p>
+                    <div class="line px-3"></div>
+                    <p class="colour-text px-3">Bio</p>
+                    <p class="colour-text px-3">{{profile.bio}}</p>
+                </div>
             </div>
-        </section>
+        <div>
+            {% for post in user.post_set.all %}
+                <div>{{ profile.user }}</div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="center">
             {% for post in object_list %}
-                <div class="post flex-column d-flex justify-content-center">
+                <div class="post center">
                     <h2 class="logo-text"><a href="{% url 'profile' post.profile.pk %}"><p>{{post.profile}}</p></a></h2>
                     <a href="{% url 'post-photogram' post.pk %}"><img src="{{post.picture.url}}" class="image" alt="Not found"></a>
                     <div class="description">
