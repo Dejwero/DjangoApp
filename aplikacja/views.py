@@ -25,6 +25,12 @@ class profile(DetailView):
     pk_url_kwarg = 'pk'
     fields= '__all__'
 
+class myprofile(DetailView):
+    model = Profile
+    template_name = 'myprofile.html'
+    pk_url_kwarg = 'pk'
+    fields= '__all__'
+
 def login(request):
     return render(request, 'login.html', {'title': 'Zaloguj się'})
 def signup(request):

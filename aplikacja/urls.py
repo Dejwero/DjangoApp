@@ -11,6 +11,7 @@ urlpatterns = [
     path('profile/<int:pk>/', profile.as_view(), name='profile'),
     path('login/', views.login, name='log-in'),
     path('signup/', views.signup, name='sign-up'),
+    path('myprofile/', views.myprofile.as_view(), name='my-profile'),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
 ]

@@ -26,7 +26,7 @@ body {
     flex-wrap: wrap;
     margin: 40px;
     margin-top: 70px;
-
+    box-shadow: 10px 10px 15px black;
 }
 .block p {
     padding: 15x;
@@ -57,19 +57,25 @@ body {
     background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 40px;
 }
+
 /*Page after login*/
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .post {
     width: 600px;
     background-color: rgba(0, 0, 0, 0.662);
     margin: 30px;
     padding: 20px;
     border-radius: 20px;
+    box-shadow: 10px 10px 15px black;
 }
 .post h2 {
     padding-left: 20px;
-    /* padding-top: 14px; */
     font-size: 35px;
 }
 .post .image {
@@ -77,9 +83,10 @@ body {
     height: 420px;
     border-radius: 20px;
     margin: auto;
+    box-shadow: 10px 5px 15px black;
 }
 .post .description {
-    padding: 10px;
+    padding: 20px;
     padding-left: 20px;
     background: linear-gradient(to right, #3cb8b8 0%, #8751c9 100%);
     background-clip: text;
@@ -88,18 +95,29 @@ body {
   font-size: 18px;
   text-decoration: none;
 }
-.comment {
-    padding:20px;
-    width: 500px;
-    padding: 10px;
-    font-size: 15px;
-    background-color: white;
-    color: black;
+.description {
+    background-color: rgb(22, 21, 21);
     border-radius: 20px;
-    margin: 10px;
+    margin: 20px;
+    box-shadow: 10px 5px 15px black;
+    padding:20px;
+    width: 520px;
+}
+.description .font {
+    font-size: 10;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 2px 2px 2px black;
 }
 .comment-text {
-    color: black;
+    color: rgb(255, 244, 244);
+}
+.comment-author {
+    font-weight: bold;
 }
 .image {
     width: 100%;
@@ -108,12 +126,32 @@ body {
     max-width: 100%;
     max-height: 100%;
 }
+.profile-panel {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.685);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    padding: 40px;
+    margin: 200px;
+    max-width: 700px;
+    border-style: none;
+    margin: 3px;
+    box-shadow: 10px 10px 15px black;
+    width: 800px;
+}
 .profile-avatar {
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 
+}
+.panel {
+    width: 200px;
+}
+.line {
+    border-bottom: solid 2px #298787;
+    width: 100%;
 }
 button {
     padding: 15px;
@@ -121,37 +159,4 @@ button {
 input {
     border-radius: 10px;
     padding: 5px;
-}
-
-.tabele{
-	max-width: 768px;
-	font-family: sans-serif;
-	padding:40px 20px;
-	color:#fff;
-}
-
-.tabele table{
-	width: 80%;
-	border-collapse: collapse;
-	margin: 0 auto;}
-
-.tabele caption{
-	font-size: 1.2em;
-	padding-bottom: 20px;
-}
-
-.tabele tr{
-	background: #000;
-	background: rgba(255,255,255,.3);
-	border-bottom:solid 1px #fff;
-	text-align: left;
-}
-
-.tabele tbody tr{
-	background: rgba(255,255,255,.1);
-}
-
-.tabele td{
-	padding: 8px 4px;
-	text-align: left;
 }
