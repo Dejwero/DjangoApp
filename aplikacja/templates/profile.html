@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if user.is_authenticated %}
     <div class="d-flex center flex-column">
             <div class="profile-panel d-flex flex-row">
                 <div class="center">
@@ -22,7 +23,11 @@
             {% endfor %}
         </div>
     </div>
+{% else %}
 
+<meta http-equiv="refresh" content="0; url=/members/login/" />
+
+{% endif %}
 
 
 {% endblock content %}
