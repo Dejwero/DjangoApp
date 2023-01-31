@@ -107,11 +107,9 @@ body {
     font-size: 10;
 }
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    margin: auto;
-    box-shadow: 2px 2px 2px black;
 }
 .comment-text {
     color: rgb(255, 244, 244);
@@ -119,12 +117,15 @@ body {
 .comment-author {
     font-weight: bold;
 }
-.image {
+.image-avatar {
     width: 100%;
     height: auto;
     object-fit: cover;
     max-width: 100%;
     max-height: 100%;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 10px 5px 15px black;
 }
 .profile-panel {
     position: relative;
@@ -144,7 +145,6 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-
 }
 .panel {
     width: 200px;
