@@ -2,8 +2,9 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from .models import Post, Profile
 from django.urls import reverse, reverse_lazy
 
@@ -26,17 +27,21 @@ class post(DetailView):
         context["total_likes"] = total_likes
         return context
 
-class profile(DetailView):
-    model = Profile
+class profile(TemplateView):
     template_name = 'profile.html'
-    pk_url_kwarg = 'pk'
-    fields= '__all__'
+    context_object_name = "posts"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.get(pk=self.kwargs['pk'])
+        context['posts'] = Post.objects.filter(profile=context['profile'])
+        return context
 
-class myprofile(DetailView):
+class myprofile(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'myprofile.html'
-    pk_url_kwarg = 'pk'
-    fields= '__all__'
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
 
 def login(request):
     return render(request, 'login.html', {'title': 'Zaloguj się'})
