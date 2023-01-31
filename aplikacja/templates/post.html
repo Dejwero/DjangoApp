@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if user.is_authenticated %}
         <div class="center">
                 <div class="post center">
                     <h2 class="logo-text"><a href="{% url 'profile' post.profile.pk %}"><p>{{post.profile}}</p></a></h2>
@@ -22,7 +23,7 @@
                                 <a href="#">Dodaj komentarz</a>
                                 {% for comment in post.comments.all %}
                                 <div class="description d-flex">
-                                    <div><img src="{{comment.image}}" class="avatar" ></div>
+                                    <div><img src="{{comment.author.profile_picture.url}}" class="avatar" ></div>
                                     <div class="px-3">
                                         <p class="comment-text colour-text comment-author">{{comment.author}}</p>
                                         <p class="comment-text">{{comment.text}}</p>
@@ -33,6 +34,10 @@
                     </div>
                 </div>
         </div>
+{% else %}
 
+<meta http-equiv="refresh" content="0; url=/members/login/" />
+
+{% endif %}
 
 {% endblock content %}
