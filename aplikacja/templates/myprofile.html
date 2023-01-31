@@ -2,12 +2,32 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-        <h1>Mój profil</h1>
-        <section class="d-flex">
-            <div>
-                <img src="{{object.profile_picture.url}}" class="profile-avatar image" alt="Not found">
+    <div class="d-flex center flex-column">
+            <div class="profile-panel d-flex flex-row">
+                <div class="center">
+                    <img class="profile-avatar" src="{{profile.profile_picture.url}}" class=" image" alt="Not found">
+                </div>
+                <div>
+                    <h1 class="colour-text px-3">{{profile.user_name}}</h1>
+                    <div class="line px-3"></div>
+                    <p class="colour-text px-3">Wiek</p>
+                    <p class="colour-text px-3">{{profile.age}}</p>
+                    <div class="line px-3"></div>
+                    <p class="colour-text px-3">Bio</p>
+                    <p class="colour-text px-3">{{profile.bio}}</p>
+                </div>
             </div>
-        </section>
+        <div>
+            {% for post in object.post_set.all %}
+                <div class="post center">
+
+                    <a href="{% url 'post-photogram' post.pk %}"><img src="{{post.picture.url}}" class="image" alt="Not found"></a>
+                    <div class="description">
+                        <p class="">{{post.description}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
 {% else %}
 
 <meta http-equiv="refresh" content="0; url=/members/login/" />
