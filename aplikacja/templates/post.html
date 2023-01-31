@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
 {% block content %}
 
 {% if user.is_authenticated %}
@@ -39,5 +39,15 @@
 <meta http-equiv="refresh" content="0; url=/members/login/" />
 
 {% endif %}
+
+ <br/><br/>
+ <hr>
+ <br/>
+ <form action="{% url 'like_post' post.pk %}" method="POST">
+     {% csrf_token %}
+     <button type="submit", name="post_id", value=" {{ post.id}}", class="btn btn-primary btn-sm">Like</button>
+     - {{ total_likes }} Likes
+ </form>
+
 
 {% endblock content %}
