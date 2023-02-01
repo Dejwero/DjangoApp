@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 PROFILE_STATUS = (
@@ -31,8 +32,13 @@ class Post(models.Model):
     def __str__(self):
         return self.description
 
+
+    def get_absolute_url(self):
+        return reverse('mainpage-photogram', args=(str(self.id)))
+
     def total_likes(self):
         return self.likes.count()       # działa poprawnie chociaż python pokazuje błąd
+
 
 class Comment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True, default=1)
@@ -41,3 +47,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+    def get_absolute_url(self):
+        return reverse('mainpage-photogram', args=(str(self.id)))
