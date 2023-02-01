@@ -3,10 +3,11 @@
 
 {% if user.is_authenticated %}
     <div class="center">
+        <a href="{% url 'addpost' %}"><button type="button" class="m-3 btn btn-dark">Dodaj post</button></a>
         {% for post in object_list %}
             <div class="post center">
                 <h2 class="logo-text"><a href="{% url 'profile' post.profile.pk %}"><p>{{post.profile}}</p></a></h2>
-                <a href="{% url 'post-photogram' post.pk %}"><img src="{{post.picture.url}}" class="image" alt="Not found"></a>
+                <a href="{% url 'post-photogram' post.pk %}"><img src="{{ post.picture.url }}" class="image" alt="Not found"></a>
                 <div class="description">
                     <p class="">{{post.description}}</p>
                 </div>

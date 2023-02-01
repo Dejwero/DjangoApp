@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 PROFILE_STATUS = (
     ('unfollowed', 'Unfollowed'),
@@ -29,6 +30,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.description
+
+    def get_absolute_url(self):
+        return reverse('mainpage-photogram')
 
 
 class Comment(models.Model):

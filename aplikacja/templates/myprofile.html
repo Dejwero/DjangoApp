@@ -17,6 +17,7 @@
                     <p class="colour-text px-3">{{profile.bio}}</p>
                 </div>
             </div>
+        <a href="{% url 'addpost' %}"><button type="button" class="btn btn-dark m-3">Dodaj post</button></a>
         <div>
             {% for post in object.post_set.all %}
                 <div class="post center">
@@ -27,6 +28,9 @@
                     </div>
                 </div>
             {% endfor %}
+        </div>
+    </div>
+
 
 {% else %}
 

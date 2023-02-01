@@ -5,7 +5,9 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
-from .models import Post, Profile
+from .models import Post, Profile, Comment
+from django.urls import reverse_lazy
+from aplikacja.forms import PostForm, CommentForm
 
 # kom 4
 # kom 5
@@ -35,6 +37,30 @@ class myprofile(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         return self.request.user.profile
+
+
+class AddPostView(LoginRequiredMixin, CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'add-post.html'
+    success_url = reverse_lazy('mainpage-photogram')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.profile = self.request.user.profile
+        if form.cleaned_data.get('picture'):
+            form.instance.picture = form.cleaned_data.get('picture')
+        return super().form_valid(form)
+class AddCommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add-comment.html'
+    success_url = reverse_lazy('mainpage-photogram')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user.profile
+        # form.instance.image = self.request.profile.post
+        return super().form_valid(form)
 
 def login(request):
     return render(request, 'login.html', {'title': 'Zaloguj się'})

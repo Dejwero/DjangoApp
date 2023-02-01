@@ -18,9 +18,9 @@
                         <h2 class="colour-text left-0">Komentarze</h2>
                         {% if not post.comments.all %}
                                 <p>Jeszcze nie ma komentarzy...</p>
-                                <a href="#">Dodaj komentarz</a>
+                                <a href="{% url 'addcomment' %}">Dodaj komentarz</a>
                         {% else %}
-                                <a href="#">Dodaj komentarz</a>
+                                <a href="{% url 'addcomment' %}">Dodaj komentarz</a>
                                 {% for comment in post.comments.all %}
                                 <div class="description d-flex">
                                     <div class="avatar"><img src="{{comment.author.profile_picture.url}}" class="image-avatar"></div>
