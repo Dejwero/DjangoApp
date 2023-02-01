@@ -1,8 +1,9 @@
 from django.urls import path, include
 from . import views
-from .views import mainpage, post, profile, AddPostView, AddCommentView
+from .views import mainpage, post, profile, AddPostView, AddCommentView, LikeView
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path('myprofile/', views.myprofile.as_view(), name='my-profile'),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
+    path('like/<int:pk>', LikeView, name='like_post'),
 ]
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 

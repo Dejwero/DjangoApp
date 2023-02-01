@@ -1,16 +1,14 @@
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from .models import Post, Profile, Comment
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from aplikacja.forms import PostForm, CommentForm
 
-# kom 4
-# kom 5
 def photogram(request):
     return render(request, 'photogram.html', {'title': 'Witamy!'})
 class mainpage(ListView):
@@ -21,6 +19,12 @@ class post(DetailView):
     model = Post
     template_name = 'post.html'
     fields = '__all__'
+    def get_context_data(self, *args, **kwargs):
+        context = super(post, self).get_context_data(**kwargs)
+        stuff = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = stuff.total_likes()
+        context["total_likes"] = total_likes
+        return context
 
 class profile(TemplateView):
     template_name = 'profile.html'
@@ -86,3 +90,10 @@ def signup(request):
             return redirect('signup')
     else:
         return render(request, 'signup.html', {'title': 'Zarejestruj się'})
+
+
+def LikeView(request, pk):
+    posts = get_object_or_404(Post, id=request.POST.get('post_id'))
+    posts.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post-photogram', args=[str(pk)]))
+
