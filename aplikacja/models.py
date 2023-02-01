@@ -32,7 +32,7 @@ class Post(models.Model):
         return self.description
 
     def get_absolute_url(self):
-        return reverse('mainpage-photogram')
+        return reverse('mainpage-photogram', args=(str(self.id)))
 
 
 class Comment(models.Model):
@@ -42,3 +42,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+    def get_absolute_url(self):
+        return reverse('mainpage-photogram', args=(str(self.id)))

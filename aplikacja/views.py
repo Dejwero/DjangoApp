@@ -51,6 +51,8 @@ class AddPostView(LoginRequiredMixin, CreateView):
         if form.cleaned_data.get('picture'):
             form.instance.picture = form.cleaned_data.get('picture')
         return super().form_valid(form)
+
+
 class AddCommentView(LoginRequiredMixin, CreateView):
     model = Comment
     form_class = CommentForm
@@ -59,7 +61,7 @@ class AddCommentView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user.profile
-        # form.instance.image = self.request.profile.post
+        form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
 def login(request):

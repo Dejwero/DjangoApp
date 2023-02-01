@@ -5,8 +5,9 @@
     <div class="d-flex center flex-column">
             <div class="profile-panel d-flex flex-row">
                 <div class="center">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
+                        {{form.media}}
                         {{form.as_p}}
                         <button type="submit">Dodaj post</button>
                     </form>
